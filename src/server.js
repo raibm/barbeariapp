@@ -6,6 +6,10 @@ class App {
   constructor () {
     this.express = express()
     this.isDev = process.env.NODE_ENV !== 'production'
+
+    this.middlewares()
+    this.routes()
+    this.views()
   }
 
   middlewares () {
@@ -23,7 +27,7 @@ class App {
   }
 
   routes () {
-
+    this.express.use(require('./routes'))
   }
 }
 
