@@ -1,0 +1,43 @@
+{% extends "_layouts/default.njk" %}
+
+{% block body %}
+  <div class="content">
+    <strong>Agendamento horário</strong>
+    <div class="provider">
+      <div>
+        <img src="/files/{{ provider.avatar }}" />
+        <strong>{{ provider.name }}</strong>
+      </div>
+    </div>
+
+    <form action="/app/appontments/new/{{ provider.id }}" method="post">
+      <input type="text" class="flatpickr" placeholder="Escolha uma data">
+          <div id="hours">
+      <label>
+        <input type="radio">
+        12:00
+      </label>
+        <label>
+        <input type="radio">
+        13:00
+      </label>
+        <label>
+        <input type="radio">
+        14:00
+      </label>
+
+      <button type="submit">Agendar</button>
+    </div>
+    </form>
+
+
+  </div>
+
+  <script type="text/javascript">
+    flatpickr('.flatpickr',{
+      minDate: new Date(),
+      dateFormat: 'd/m/Y'
+    })
+
+  </script>
+{% endblock %}
