@@ -30,6 +30,7 @@ routes.post('/signin', SessionController.store)
 routes.get('/app/logout', SessionController.destroy)
 routes.get('/app/dashboard', DashboardController.index)
 routes.get('/app/appointments/new/:provider', AppointmentsController.create)
+routes.post('/app/appointments/new/:provider', AppointmentsController.store)
 routes.get('/app/available/:provider', AvailableController.index)
 
 routes.get('/signup', guestMiddleware, UserController.create)
